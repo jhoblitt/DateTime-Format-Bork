@@ -29,7 +29,7 @@ use DateTime::Format::Builder(
 sub bork {
 	my( $self, $dt ) = @_;
 
-	$dt->set_time_zone( 'UTC' );
+	$dt = $dt->clone->set_time_zone( 'UTC' );
 
 	my $borking;
 	$borking .= _bork( sprintf( "%04d", $dt->year ) ) . "-";
