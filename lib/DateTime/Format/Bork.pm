@@ -20,7 +20,7 @@ use DateTime::Format::Builder(
 			$/ix,
 			params => [ qw( year month day hour minute second ) ],
 			postprocess => \&_unbork,
-			extra => { time_zone => 'UTC' },
+			extra => { time_zone => 'Europe/Stockholm' },
 		},
 		],
 	}
@@ -29,7 +29,7 @@ use DateTime::Format::Builder(
 sub bork {
 	my( $self, $dt ) = @_;
 
-	$dt = $dt->clone->set_time_zone( 'UTC' );
+	$dt = $dt->clone->set_time_zone( 'Europe/Stockholm' );
 
 	my $borking;
 	$borking .= _bork( sprintf( "%04d", $dt->year ) ) . "-";
